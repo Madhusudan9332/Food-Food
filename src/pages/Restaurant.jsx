@@ -1,4 +1,4 @@
-import { useApiContext } from "../context";
+import { useApiContext } from "../ApiContext";
 import { useParams, Link } from "react-router-dom";
 import { Navbar, Footer, MenuItem } from "../components";
 import React from "react";

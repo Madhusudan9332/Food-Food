@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Navbar, Footer, FoodItem ,FilterBar } from "../components";
-import { useApiContext } from "../context";
+import { useApiContext } from "../ApiContext";
 import { useParams, Link } from "react-router-dom";
 
 function Food() {

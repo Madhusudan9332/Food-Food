@@ -8,7 +8,7 @@ import {
   Food,
   Admin,
 } from "./pages";
-import { useApiContext } from "./context";
+import { useApiContext } from "./ApiContext";
 import { useEffect } from "react";
 
 function App() {

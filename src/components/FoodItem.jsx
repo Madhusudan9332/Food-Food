@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import { useApiContext } from "../context";
+import { useApiContext } from "../ApiContext";
 
 function FoodItem({ item }) {
   const [rating, setRating] = useState("");
