@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navbar, Footer, FoodItem ,FilterBar } from "../components";
+import { Navbar, Footer, FoodItem ,FilterBar,Loader } from "../components";
 import { useApiContext } from "../ApiContext";
 import { useParams, Link } from "react-router-dom";
 
@@ -35,7 +35,7 @@ function Food() {
       <Navbar />
       <FilterBar />
       {foodLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : foodError ? (
         <p>{foodError}</p>
       ) : foodItems ? (

@@ -10,5 +10,6 @@ import FilterBar from "./FilterBar";
 import WorkOnUrls from "./WorkOnUrls";
 import PostData from "./PostData";
 import CatogoryImg from "./CatogoryImg";
+import Loader from "./Loader";
 
-export { Navbar, Footer, Map, SelectRestaurant, MenuItem, FoodItem, TopImage, FoodCategory, FilterBar, WorkOnUrls,PostData ,CatogoryImg};
+export { Navbar, Footer, Map, SelectRestaurant, MenuItem, FoodItem, TopImage, FoodCategory, FilterBar, WorkOnUrls,PostData ,CatogoryImg,Loader};
