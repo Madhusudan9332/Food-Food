@@ -24,7 +24,7 @@ const FilterBar = () => {
   return (
     <div className="flex items-center justify-between mb-4 px-10 ">
       {/* Tab Name Filter */}
-      <div className="space-x-4">
+      <div className="flex items-center justify-between space-x-4">
         <span className="font-bold bg-gray-200 rounded px-4 py-2 text-sm sm:text-base md:text-lg lg:text-xl"
         onClick={toggleIsActiveFilter}>
           Filter by:
