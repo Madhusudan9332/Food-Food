@@ -28,7 +28,7 @@ function Home() {
       ) : restaurantsError ? (
         <h1>{restaurantsError}</h1>
       ) : (
-        <div className="grid grid-cols-4 gap-6 m-4 p-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-4 p-4">
           {restaurantsData?.map((item, index) => (
             <div
               key={index}

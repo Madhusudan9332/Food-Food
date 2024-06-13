@@ -43,25 +43,29 @@ const SelectRestaurant = ({item}) => {
 
   return (
     <div className="col-span-1 bg-white rounded-lg shadow-md">
-      <div className="relative h-48">
+      <div className="relative h-40 sm:h-48 md:h-56">
         <img src={image} alt={name} className="h-full w-full object-cover" />
-        <div className="absolute bottom-0 left-0 font-bold  text-xl text-white px-2 py-1">
+        <div className="absolute bottom-0 left-0 font-bold w-full text-md sm:text-lg md:text-xl lg:text-2xl bg-black bg-opacity-50 text-white px-2 py-1">
         Restaurant at {distance}
         </div>
       </div>
-      <h3 className="mt-2">{name}</h3>
+      <h3 className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl">{name}</h3>
       <div className="flex justify-between items-center">
-        <spam className="mt-1">⭐ {rating}</spam>
-        <spam className="mt-1">
+        <spam className="mt-1 text-xs sm:text-sm md:text-base lg:text-lg">⭐ {rating}</spam>
+        <spam className="mt-1 text-xs sm:text-sm md:text-base lg:text-lg">
           🕒 {`${deliveryTime[0]} - ${deliveryTime[0] + 5} ${deliveryTime[1]}`}
         </spam>
       </div>
-      <p className="mt-1">{location}</p>
+      <p>{
+        location.split(",").map((item, index) => (
+          <span key={index} className="mt-1 text-xs sm:text-sm md:text-base lg:text-lg" >{item}</span>
+        ))
+      }</p>
       <div className="flex justify-between items-center">
-        <spam className="mt-1">Open at {openTime}</spam>
-        <spam className="mt-1" onClick={toggleMenu}>
-           <span>📋 Menu</span>
-           <div className={`hidden toggleMenuClass:${isActiveMenu ? "block" : "hidden"} absolute bg-white rounded-lg shadow-md top-10 right-0 transform -translate-x-1/2`}>
+        <spam className="mt-1 text-xs sm:text-sm md:text-base lg:text-lg">Open at {openTime}</spam>
+        <spam onClick={toggleMenu}>
+           <span className="mt-1 text-xs sm:text-sm md:text-base">📋 Menu</span>
+           <div className={`hidden hover:${isActiveMenu ? "block" : "hidden"} absolute bg-white rounded-lg shadow-md top-10 right-0 transform -translate-x-1/2`}>
             <ul> 
               {menu.map((item, index) => (
                 <li key={index}>{item}</li>
