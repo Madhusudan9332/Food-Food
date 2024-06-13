@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom";
-import { ApiProvider } from "./context/ApiContext";
+import { ApiProvider } from "./context";
 import App from './App'
 import './index.css'
 
