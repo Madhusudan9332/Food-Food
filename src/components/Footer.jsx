@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
+  
   return (
     <footer className="bg-gradient-to-r from-red-500 to-indigo-800 text-white py-12 px-4">
       <div className="container mx-auto flex flex-wrap justify-between">

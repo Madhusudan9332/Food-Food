@@ -1,9 +1,7 @@
 
 import { Link, NavLink } from 'react-router-dom';
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const { loginWithRedirect , logout } = useAuth0();
 
   return (
     <>
@@ -14,9 +12,9 @@ const Navbar = () => {
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Food-Food</span>
           </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="tel:5541251234" className="text-sm  text-gray-500 dark:text-white hover:underline">(555) 412-1234</a>
-            <button onClick={loginWithRedirect} className="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Login</button>
-            <button onClick={logout} className="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Log Out</button>
+            {/* <Authentication /> */}
+            <Link to="/login" className="text-gray-900 dark:text-white hover:underline">Login</Link>
+            <Link to="/register" className="text-gray-900 dark:text-white hover:underline">Register</Link>
           </div>
         </div>
       </nav>

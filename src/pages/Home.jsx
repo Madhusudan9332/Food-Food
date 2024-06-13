@@ -1,37 +1,48 @@
-import { Navbar, Footer, RandomImage, FoodItem , FoodCategory , FilterBar} from "../components";
-import { useEffect, useState, useCallback } from "react";
-import { useApiContext } from "../Context";
+import {
+  Navbar,
+  Footer,
+  SelectRestaurant,
+  TopImage,
+  FoodCategory,
+} from "../components";
+import { useApiContext } from "../context";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 
 function Home() {
-  const [query, setQuery] = useState("menu");
-  const { data, loading, error, fetchData} = useApiContext();
-
-  // const fetchDataCallback = 
-  useCallback(() => {
-    fetchData(query);
-  }, [fetchData, query]);
-
+  const {
+    restaurantsData,
+    restaurantsLoading,
+    restaurantsError,
+  } = useApiContext();
 
   return (
     <>
       <Navbar />
-      <RandomImage width={100} height={50} />
+      <TopImage />
       <FoodCategory />
-      <FilterBar />
-      {loading ? <h1>Loading...</h1>: error ? <h1>{error}</h1> : (
+      <h1 className="text-left px-10 text-3xl font-bold">Restaurants</h1>
+      {restaurantsLoading ? (
+        <h1>Loading...</h1>
+      ) : restaurantsError ? (
+        <h1>{restaurantsError}</h1>
+      ) : (
         <div className="grid grid-cols-4 gap-6 m-4 p-4">
-        {data?.map((item, index) => (
-          <div
-            key={index}
-            className="hover:scale-105 duration-300 cursor-pointer"
-          >
-            <FoodItem item={item} />
-          </div>
-        ))}
-      </div>
-      // <pre>{JSON.stringify(data, null, 2)}</pre>
+          {restaurantsData?.map((item, index) => (
+            <div
+              key={index}
+              className="hover:scale-105 duration-300 cursor-pointer"
+            >
+              <Link to={`/restaurant/${item.name}`}>
+                <SelectRestaurant item={item} />
+              </Link>
+            </div>
+          ))}
+        </div>
+        // <pre>{JSON.stringify(data, null, 2)}</pre>
       )}
-      
+
       <Footer />
     </>
   );
