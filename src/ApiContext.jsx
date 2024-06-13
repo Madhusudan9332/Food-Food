@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import propTypes from "prop-types";
-import { foodApiInstance } from "../axiosInstance";
+import { foodApiInstance } from "./axiosInstance";
 
 const ApiContext = createContext();
 
