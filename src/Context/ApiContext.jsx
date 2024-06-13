@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import propTypes from "prop-types";
 import { foodApiInstance } from "../axiosInstance";
 
@@ -8,7 +8,7 @@ export const useApiContext = () => {
   return useContext(ApiContext);
 };
 
-export const ApiProvider = ({ children }) => {
+export const ApiContextProvider  = ({ children }) => {
   const adminProfiles = [
     { username: 'admin1', password: 'password123' },
     { username: 'admin2', password: 'securepassword' },
@@ -192,6 +192,6 @@ export const ApiProvider = ({ children }) => {
   );
 };
 
-ApiProvider.propTypes = {
+ApiContextProvider.propTypes = {
   children: propTypes.node.isRequired,
 };

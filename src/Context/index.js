@@ -1,3 +1,3 @@
-import { useApiContext, ApiProvider } from "./ApiContext"
+import { useApiContext, ApiContextProvider  } from "./ApiContext"
 
-export { useApiContext, ApiProvider };
+export { useApiContext, ApiContextProvider };
