@@ -32,7 +32,7 @@ const Navbar = () => {
                 <NavLink to="/cart" className="text-gray-900 dark:text-white hover:underline" activeClassName="font-bold">Cart</NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className="text-gray-900 dark:text-white hover:underline" activeClassName="font-bold">Contact</NavLink>
+                <NavLink to="/about" className="text-gray-900 dark:text-white hover:underline" activeClassName="font-bold">About</NavLink>
               </li>
             </ul>
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Navbar, Footer, FoodItem ,FilterBar,Loader } from "../components";
 import { useApiContext } from "../ApiContext";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Food() {
   const { foodData, foodLoading, foodError, fetchFoodData } = useApiContext();
@@ -39,7 +39,7 @@ function Food() {
       ) : foodError ? (
         <p>{foodError}</p>
       ) : foodItems ? (
-        <div className="grid grid-cols-3 gap-4 p-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-4 p-4">
           {foodItems.map((item, index) => (
             <div key={index}>
               <FoodItem item={item} />

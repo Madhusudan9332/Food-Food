@@ -8,7 +8,6 @@ import {
 } from "../components";
 import { useApiContext } from "../ApiContext";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 
 function Home() {

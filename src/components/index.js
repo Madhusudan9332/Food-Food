@@ -11,5 +11,21 @@ import WorkOnUrls from "./WorkOnUrls";
 import PostData from "./PostData";
 import CatogoryImg from "./CatogoryImg";
 import Loader from "./Loader";
+import Authentication from "./Authentication";
 
-export { Navbar, Footer, Map, SelectRestaurant, MenuItem, FoodItem, TopImage, FoodCategory, FilterBar, WorkOnUrls,PostData ,CatogoryImg,Loader};
+export {
+  Navbar,
+  Footer,
+  Map,
+  SelectRestaurant,
+  MenuItem,
+  FoodItem,
+  TopImage,
+  FoodCategory,
+  FilterBar,
+  WorkOnUrls,
+  PostData,
+  CatogoryImg,
+  Loader,
+  Authentication,
+};

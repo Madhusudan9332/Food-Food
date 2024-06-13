@@ -3,6 +3,7 @@ import {
   Home,
   Menu,
   Cart,
+  About,
   PlaceOrderPage,
   Restaurant,
   Food,
@@ -37,7 +38,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/placeOrder/:orderId" element={<PlaceOrderPage />} />
-        <Route path="/contact" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </>

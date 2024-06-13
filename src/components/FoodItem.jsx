@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useApiContext } from "../ApiContext";
 
 function FoodItem({ item }) {
@@ -35,24 +35,24 @@ function FoodItem({ item }) {
   
   return (
     <div className="col-spam-1 bg-white rounded-lg shadow-md">
-      <div className="relative h-48">
+      <div className="relative h-40 sm:h-48 md:h-56">
         <img
           src={item?.image}
           alt={item?.name}
           className="h-full w-full object-cover"
         />
       </div>
-      <h3 className="mt-2">{item.name}</h3>
+      <h3 className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl">{item.name}</h3>
       <div className="flex justify-between items-center">
-        <span className="mt-1">⭐ {rating}</span>
+        <span className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl">⭐ {rating}</span>
       </div>
-      <p className="mt-1">{item.location}</p>
+      <p className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl">{item.location}</p>
       <div className="flex justify-between items-center">
-        <span className="mt-1">Add to cart</span>
-        <span className="mt-1">
-          <span onClick={() => addItem(item)}>➕</span>
-          <span> {cartItem?.quantity || 0} </span>
-          <span onClick={() => removeItem(item)}>➖</span>
+        <span className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl">Add to cart</span>
+        <span>
+          <span  className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl" onClick={() => addItem(item)}>➕</span>
+          <span className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl"> {cartItem?.quantity || 0} </span>
+          <span  className="mt-1 text-sm sm:text-base md:text-lg lg:text-xl" onClick={() => removeItem(item)}>➖</span>
         </span>
       </div>
     </div>
