@@ -8,6 +8,7 @@ import {
   Restaurant,
   Food,
   Admin,
+  Login,
 } from "./pages";
 import { useApiContext } from "./ApiContext";
 import { useEffect } from "react";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/placeOrder/:orderId" element={<PlaceOrderPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
