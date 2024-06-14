@@ -1,22 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import Authentication from "./Authentication";
 import image from "../assets/user.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [userData, setUserData] = useState({});
-  const { loggedInWithGoogle, loggedOutWithGoogle, getUserData } =
-    Authentication();
-  const handleLogin = async () => {
-    await loggedInWithGoogle();
+  const { loggedOutWithGoogle, getUserData } = Authentication();
+  useEffect(() => {
     handleGetUserData();
-  };
+  }, []);
   const handleLogout = async () => {
     await loggedOutWithGoogle();
     handleGetUserData();
   };
   const handleGetUserData = async () => {
-    const data =await getUserData();
+    const data = await getUserData();
     setUserData(data);
   };
 
@@ -40,7 +38,6 @@ const Navbar = () => {
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             {/* <Authentication /> */}
             <Link
-              // onClick={handleLogin}
               to="/login"
               className="text-gray-900 dark:text-white hover:underline"
             >
