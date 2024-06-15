@@ -1,33 +1,19 @@
 // src/components/LoginPage.js
-import { useState, useEffect } from "react";
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-  GithubAuthProvider,
-  TwitterAuthProvider,
-} from "firebase/auth";
-import app from "../config/firebase";
+import { useState } from "react";
+import {Authentication} from "../components";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [auth, setAuth] = useState(null);
   const navigate = useNavigate();
+  const { loggedInWithGoogle, getUserData } = Authentication();
   const [isActiveSignIn, setIsActiveSignIn] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    const auth = getAuth(app);
-    setAuth(auth);
-  }, []);
 
-  const redirectToHome = (provider) => {
-    const auth = getAuth(app);
-    setAuth(auth);
+  const redirectToHome = () => {
     try {
-      handleLoginWithProvider(provider);
+      loggedInWithGoogle();
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -44,19 +30,11 @@ const Login = () => {
   };
   const handleSignIn = async () => {
     console.log("Sign in with username and password:", username, password);
-    if (isActiveSignIn && username && password) redirectToHome(new GoogleAuthProvider());
+    if (isActiveSignIn && username && password) redirectToHome();
     else alert("Please enter username and password");
     // Implement username and password sign-in logic here
   };
 
-  const handleLoginWithProvider = async (provider) => {
-    try {
-      await signInWithPopup(auth, provider);
-      console.log("Logged in with provider");
-    } catch (error) {
-      console.error("Error logging in with provider", error);
-    }
-  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -104,7 +82,7 @@ const Login = () => {
       </div>
       <div className="mt-6 w-full max-w-sm">
         <button
-          onClick={() => redirectToHome(new GoogleAuthProvider())}
+          onClick={() => redirectToHome()}
           className="w-full bg-red-500 text-white py-2 rounded mb-2 hover:bg-red-600 transition duration-300"
         >
           Login with Google
