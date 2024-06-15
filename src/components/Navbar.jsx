@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [userData, setUserData] = useState({});
-  const { loggedInWithGoogle, loggedOutWithGoogle, getUserData } =
+  const { loggedOutWithGoogle, getUserData } =
     Authentication();
   useEffect(() => {
     handleGetUserData();
@@ -39,7 +39,6 @@ const Navbar = () => {
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             {/* <Authentication /> */}
             <Link
-              onClick={loggedInWithGoogle}
               to="/login"
               className="text-gray-900 dark:text-white hover:underline"
             >

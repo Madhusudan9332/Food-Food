@@ -24,7 +24,6 @@ const SelectRestaurant = ({item}) => {
       .catch((error) => {
         console.error("Error loading image:", error);
       });
-    console.log(item?.name,"image is ",image);
   }, [item]);
 
   useEffect(() => {
