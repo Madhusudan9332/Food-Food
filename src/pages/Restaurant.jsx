@@ -16,24 +16,24 @@ function Restaurant() {
 
   React.useEffect(() => {
     // item.menu === ''
-    console.log("restaurantName", restaurantName);
-    console.log("restaurantsData", restaurantsData);
+    // console.log("restaurantName", restaurantName);
+    // console.log("restaurantsData", restaurantsData);
     const restaurant = restaurantsData.find(
       (restaurant) => restaurant.name === restaurantName
     );
     setrestaurant(restaurant);
-    console.log("restaurant", restaurant);
+    // console.log("restaurant", restaurant);
     handleItemselect(restaurant, foodCategory);
   }, []);
 
   const handleItemselect = (restaurant, foodCategory) => {
-    console.log("restaurant to select ->", restaurant);
-    console.log("foodCategory", foodCategory);
+    // console.log("restaurant to select ->", restaurant);
+    // console.log("foodCategory", foodCategory);
     const foodItems = foodCategory.filter((item) =>
       restaurant.menu.includes(item.name)
     );
     setFoodItems(foodItems);
-    console.log("foodItems", foodItems);
+    // console.log("foodItems", foodItems);
   };
 
   const handleToggle = () => {

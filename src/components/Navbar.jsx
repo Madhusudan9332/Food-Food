@@ -16,6 +16,7 @@ const Navbar = () => {
   };
   const handleGetUserData = async () => {
     const data = await getUserData();
+    console.log(data);
     setUserData(data);
   };
 

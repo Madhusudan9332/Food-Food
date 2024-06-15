@@ -4,18 +4,25 @@ import {
   TopImage,
   FoodCategory,
   Loader,
+  SelectRestaurant,
 } from "../components";
 import { useApiContext } from "../ApiContext";
 import { Link } from "react-router-dom";
-import {Suspense,lazy} from "react";
-const SelectRestaurant = lazy(()=>import('../components/SelectRestaurant'))
+import { useEffect } from "react";
+// import { Suspense, lazy } from "react";
+// const SelectRestaurant = lazy(() => import("../components/SelectRestaurant"));
 
 function Home() {
   const {
     restaurantsData,
     restaurantsLoading,
     restaurantsError,
+    setCurrentRestaurant,
   } = useApiContext();
+
+  useEffect(() => {
+    setCurrentRestaurant(null);
+  }, []);
 
   return (
     <>
@@ -28,7 +35,9 @@ function Home() {
           <Loader />
         </h1>
       ) : restaurantsError ? (
-        <h1 className="text-center px-10 text-3xl font-bold">{restaurantsError}</h1>
+        <h1 className="text-center px-10 text-3xl font-bold">
+          {restaurantsError}
+        </h1>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-4 p-4">
           {restaurantsData?.map((item, index) => (
@@ -36,10 +45,13 @@ function Home() {
               key={index}
               className="hover:scale-105 duration-300 cursor-pointer"
             >
-              <Link to={`/restaurant/${item.name}`}>
-                <Suspense fallback={<div>please wait</div>}>
+              <Link
+                to={`/restaurant/${item.name}`}
+                onClick={() => setCurrentRestaurant(item)}
+              >
+                {/* <Suspense fallback={<div>please wait</div>}> */}
                 <SelectRestaurant item={item} />
-                  </Suspense>
+                {/* </Suspense> */}
               </Link>
             </div>
           ))}

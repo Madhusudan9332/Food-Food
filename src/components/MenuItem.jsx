@@ -5,7 +5,7 @@ function MenuItem({item}) {
    const [image, setImage] = React.useState(null);
 
   React.useEffect(() => {
-    const name = item.name === "butter chicken"? "butter-chicken" : item.name;
+    const name = item.name === "butter chicken"? "butter-chicken" :item.name === "desserts"?"dessert": item.name;
     const randomNumber = Math.ceil(Math.random() * 10);
     import(`../assets/images/${name}_${randomNumber}.jpg`)
       .then((imageModule) => {

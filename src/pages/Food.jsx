@@ -10,7 +10,7 @@ function Food() {
 
   const getFoodItems = async () => {
     await fetchFoodData(foodName);
-    console.log("foodData after fetch", foodData);
+    // console.log("foodData after fetch", foodData);
   };
 
   useEffect(() => {
@@ -18,16 +18,16 @@ function Food() {
   }, []);
 
   useEffect(() => {
-    console.log("foodName", foodName);
+    // console.log("foodName", foodName);
     const foodArray = Array.isArray(foodData) && [
       ...foodData[0].data["vegetarian"],
       ...foodData[0].data["non vegetarian"],
     ];
-    console.log("foodArray", foodArray);
-    console.log("foodData", foodData);
+    // console.log("foodArray", foodArray);
+    // console.log("foodData", foodData);
     foodArray && setFoodItems([...foodArray]);
-    console.log("foodItems", foodItems);
-    console.log("foodArray", foodArray);
+    // console.log("foodItems", foodItems);
+    // console.log("foodArray", foodArray);
   }, [foodData]);
 
   return (

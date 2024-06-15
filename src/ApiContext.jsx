@@ -13,6 +13,9 @@ export const ApiContextProvider  = ({ children }) => {
     { username: 'admin1', password: 'password123' },
     { username: 'admin2', password: 'securepassword' },
   ];
+  const [currentRestaurant, setCurrentRestaurant] = useState(null);
+  const [orderInfo, setOrderInfo] = useState(null);
+
   const foodCategory = [
     {
       name: "samosa",
@@ -170,7 +173,11 @@ export const ApiContextProvider  = ({ children }) => {
   return (
     <ApiContext.Provider
       value={{
-        adminProfiles,
+        adminProfiles, 
+        currentRestaurant,
+        setCurrentRestaurant,
+        orderInfo,
+        setOrderInfo,
         foodCategory,
         restaurantsData,
         restaurantsLoading,

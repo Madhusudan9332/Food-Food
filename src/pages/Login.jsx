@@ -26,10 +26,10 @@ const Login = () => {
   const handleSignUp = async () => {
     setIsActiveSignIn((pre) => !pre);
     // Implement username and password sign-up logic here
-    console.log("Sign up with username and password:", username, password);
+    console.log("Sign up with username and password:", username, "......");
   };
   const handleSignIn = async () => {
-    console.log("Sign in with username and password:", username, password);
+    console.log("Sign in with username and password:", username, "......");
     if (isActiveSignIn && username && password) redirectToHome();
     else alert("Please enter username and password");
     // Implement username and password sign-in logic here
