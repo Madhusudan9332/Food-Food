@@ -1,14 +1,14 @@
 import {
   Navbar,
   Footer,
-  SelectRestaurant,
   TopImage,
   FoodCategory,
   Loader,
 } from "../components";
 import { useApiContext } from "../ApiContext";
 import { Link } from "react-router-dom";
-
+import {Suspense,lazy} from "react";
+const SelectRestaurant = lazy(()=>import('../components/SelectRestaurant'))
 
 function Home() {
   const {
@@ -37,7 +37,9 @@ function Home() {
               className="hover:scale-105 duration-300 cursor-pointer"
             >
               <Link to={`/restaurant/${item.name}`}>
+                <Suspense fallback={<div>please wait</div>}>
                 <SelectRestaurant item={item} />
+                  </Suspense>
               </Link>
             </div>
           ))}
