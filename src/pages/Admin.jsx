@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useApiContext } from '../ApiContext';
-import {WorkOnUrls , PostData} from '../components';
+import {RestaurantForm} from '../components';
 
 
 const Admin = () => {
   const { adminProfiles } = useApiContext();
   const [username, setUsername] = useState('');
-  const [postData , setPostData] = useState(false);
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
@@ -76,26 +75,11 @@ const Admin = () => {
           </div>
         </form>
       ) : (
-        <AdminSection postData={postData} setPostData={setPostData} />
+        <RestaurantForm />
       )}
     </div>
   );
 };
 
-const AdminSection = ({postData,setPostData}) => {
-  // Logic for handling sensitive data changes goes here
-  return (
-    <div className="bg-white p-6 rounded shadow-md w-full max-w-4xl mt-8">
-      <h2 className="flex justify-between items-center text-2xl font-bold mb-4">
-        <span>Admin Section</span>
-        <span className='flex gap-2'>
-            <button className='shadow-md p-2 rounded-md' onClick={()=>setPostData(false)}>Work on Urls</button>
-            <button className='shadow-md p-2 rounded-md' onClick={()=>setPostData(true)}>Post Data</button>
-        </span>
-      </h2>
-      {postData ? <PostData /> : <WorkOnUrls />}
-    </div>
-  );
-};
 
 export default Admin;

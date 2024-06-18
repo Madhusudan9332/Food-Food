@@ -8,7 +8,10 @@ const Navbar = () => {
   const { loggedOutWithGoogle, getUserData } =
     Authentication();
   useEffect(() => {
-    handleGetUserData();
+    const data = handleGetUserData();
+    setTimeout(() => {
+      handleGetUserData(data);
+    }, 1000);
   }, []);
   const handleLogout = async () => {
     await loggedOutWithGoogle();
@@ -18,6 +21,7 @@ const Navbar = () => {
     const data = await getUserData();
     console.log(data);
     setUserData(data);
+    return data;
   };
 
   return (

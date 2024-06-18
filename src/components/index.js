@@ -12,6 +12,7 @@ import PostData from "./PostData";
 import CatogoryImg from "./CatogoryImg";
 import Loader from "./Loader";
 import Authentication from "./Authentication";
+import RestaurantForm from "./RestaurantForm";
 
 export {
   Navbar,
@@ -28,5 +29,6 @@ export {
   CatogoryImg,
   Loader,
   Authentication,
+  RestaurantForm,
 };
 

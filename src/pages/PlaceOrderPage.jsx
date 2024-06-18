@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Navbar, Footer, Map, Authentication } from "../components";
 import { CSSTransition } from "react-transition-group";
 import { useApiContext } from "../ApiContext";
+import { set } from "firebase/database";
 
 const PlaceOrderPage = () => {
   const { id } = useParams();
@@ -26,10 +27,14 @@ const PlaceOrderPage = () => {
     const user = await getUserData();
     setUserData(user);
     setLoading(false);
+    return user;
   };
 
   useEffect(() => {
-    handleGetUserData();
+    const user = handleGetUserData();
+    setTimeout(() => {
+      setUserData(user);
+    }, 1000);
   }, []);
 
   useEffect(() => {
