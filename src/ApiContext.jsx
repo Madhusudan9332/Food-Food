@@ -112,6 +112,7 @@ export const ApiContextProvider  = ({ children }) => {
     setRestaurantsLoading(true);
     try {
       const response = await foodApiInstance.get(`/restaurants`);
+      console.log("data is",response.data)
       setRestaurantsData(response.data);
     } catch (error) {
       setRestaurantsError(error.message);
